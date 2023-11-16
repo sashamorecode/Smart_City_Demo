@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/smart-city-demo/ --port=8080",
+    "build": "vite build --base=/Smart_City_Demo/smart-city-demo/",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --base=/smart-city-demo/ --port=8080"
+    "preview": "vite preview --port=8080 --base=/Smart_City_Demo/smart-city-demo/"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
