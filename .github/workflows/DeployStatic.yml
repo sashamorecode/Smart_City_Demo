@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Enter the repository directory
-        run: cd smart-city-demo/
+        run: cd smart-city-demo
       - name: List directory
         run: ls
       - name: Set up Node
