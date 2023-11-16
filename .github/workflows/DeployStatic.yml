@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+      - name: Enter the repository directory
+        run: cd smart-city-demo/
       - name: Install dependencies
         run: npm install
       - name: Build
