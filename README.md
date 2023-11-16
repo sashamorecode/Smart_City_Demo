@@ -2,6 +2,8 @@
 
 This project is a simple React application. It uses the @dnd-kit/core and @dnd-kit/sortable libraries to create a drag-and-drop interface for sorting different energy sources.
 
+[Try Demo](https://sashamorecode.github.io/Smart_City_Demo/)
+
 Features
 - Energy Sources: The application displays a list of energy sources, including Solar, Wind, Coal, Gas, and Oil. Each source is represented as a draggable card that displays the source's name.
 
