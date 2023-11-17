@@ -1,27 +1,27 @@
 import ResourceOrderingGame from "./pages/ResourceOrderingGame";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
-          path="/Smart_City_Demo"
+          path="/"
           element={
-            <a href="/Smart_City_Demo/resource-ordering-game">
+            <a href="/Smart_City_Demo/#resource-ordering-game">
               {" "}
               ResourceOrderingGame{" "}
             </a>
           }
         />
         <Route
-          path="/Smart_City_Demo/resource-ordering-game"
+          path="/resource-ordering-game"
           element={<ResourceOrderingGame />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

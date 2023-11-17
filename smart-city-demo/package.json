@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "/Smart_City_Demo/#",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/Smart_City_Demo/",

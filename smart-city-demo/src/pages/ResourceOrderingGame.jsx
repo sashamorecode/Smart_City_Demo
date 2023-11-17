@@ -55,7 +55,7 @@ function ResourceOrderingGame() {
       <Button variant="outline-primary" onClick={checkOrder}>
         Check
       </Button>{" "}
-      <Button variant="outline-primary" as={Link} to="/Smart_City_Demo">
+      <Button variant="outline-primary" as={Link} to="/">
         Home
       </Button>{" "}
     </>
