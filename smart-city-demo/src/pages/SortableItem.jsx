@@ -12,21 +12,28 @@ export default function SortableItem(props) {
     transition,
   };
   const className = props.className;
-  if (props.className === "correct") {
-    return (
-      <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-        <Card body className={className}>
-          {props.id} {props.percentage}
-        </Card>
-      </div>
-    );
-  }
-
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <Card body className={className}>
-        {props.id}
+        {cardContent()}
       </Card>
     </div>
   );
+
+  function cardContent() {
+    if (props.className === "correct") {
+      return (
+        <>
+        {props.id} {props.percentage}
+        </>
+      );
+    }else {
+      return (
+        <>
+        {props.id}
+        </>
+      );
+
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ResourceOrderingGame.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
@@ -8,22 +8,23 @@ import {
   arrayMove,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import SortableItem from "../SortableItem";
+import SortableItem from "./SortableItem";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-// Define initial state for energy sources
-const sourceData = [
-  { id: "Solar", content: "Solar", usage: "5%", className: "card" },
-  { id: "Wind", content: "Wind", usage: "10%", className: "card" },
-  { id: "Coal", content: "Coal", usage: "20%", className: "card" },
-  { id: "Gas", content: "Gas", usage: "30%", className: "card" },
-  { id: "Oil", content: "Oil", usage: "35%", className: "card" },
-];
+
 const correctOrder = ["Oil", "Gas", "Coal", "Wind", "Solar"];
 function ResourceOrderingGame() {
+  // Define initial state for energy sources
+  const sourceData = [
+    { id: "Solar", content: "Solar", usage: "5%", className: "card" },
+    { id: "Wind", content: "Wind", usage: "10%", className: "card" },
+    { id: "Coal", content: "Coal", usage: "20%", className: "card" },
+    { id: "Gas", content: "Gas", usage: "30%", className: "card" },
+    { id: "Oil", content: "Oil", usage: "35%", className: "card" },
+  ];
   const [energySources, setEnergySources] = useState(sourceData);
-
+  
   return (
     <>
       <div>
@@ -63,7 +64,7 @@ function ResourceOrderingGame() {
 
   function handleDragEnd(event) {
     const { active, over } = event;
-    if (active.id !== over.id) {
+    if (over && active.id !== over.id) {
       setEnergySources((items) => {
         const oldIndex = items.findIndex((item) => item.id === active.id);
         const newIndex = items.findIndex((item) => item.id === over.id);
