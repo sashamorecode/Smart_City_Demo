@@ -8,7 +8,7 @@ import {
   arrayMove,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import SortableItem from "./SortableItem";
+import SortableItem from "./ResourceCard.jsx";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ function ResourceOrderingGame() {
     { id: "Oil", content: "Oil", usage: "35%", className: "card" },
   ];
   const [energySources, setEnergySources] = useState(sourceData);
-  
+
   return (
     <>
       <div>
@@ -53,12 +53,12 @@ function ResourceOrderingGame() {
           </SortableContext>
         </Container>
       </DndContext>
-      <Button variant="outline-primary" onClick={checkOrder}>
-        Check
-      </Button>{" "}
       <Button variant="outline-primary" as={Link} to="/">
         Home
       </Button>{" "}
+      <Button variant="outline-primary" onClick={checkOrder}>
+        Check Order
+      </Button>
     </>
   );
 
