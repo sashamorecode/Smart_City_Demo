@@ -60,8 +60,9 @@ function PickTheLargestGame() {
         >
           <div>
             <p style={{ fontSize: 20 }}>
-              Correct a {props.name} consumes less energy at {props.wattage}{" "}
-              watts{" "}
+              Correct a {props.name} consumes {props.wattage} watts, 
+              which is less energy than a {energyConsumers[(props.index +1) %2].name}{" "}
+              {" "}
             </p>
           </div>
         </Button>
@@ -77,7 +78,7 @@ function PickTheLargestGame() {
         >
           <div>
             <p style={{ fontSize: 20 }}>
-              False a {props.name} consumes more energy at {props.wattage} watts{" "}
+              Wrong a {props.name} consumes {props.wattage} watts, less energy than a {energyConsumers[(props.index +1) %2].name}{" "}
             </p>
           </div>
         </Button>
