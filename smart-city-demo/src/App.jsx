@@ -1,5 +1,6 @@
 import ResourceOrderingGame from "./pages/ResourceOrderingGame";
 import PickTheLargestGame from "./pages/PickTheLargestGame";
+import OffsetMatchingGame from "./pages/OffsetMatching";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, HashRouter } from "react-router-dom";
@@ -23,6 +24,10 @@ function App() {
           path="/pick-the-largest-game"
           element={<PickTheLargestGame />}
         />
+        <Route
+          path="/offset-matching"
+          element={<OffsetMatchingGame />}
+        />
       </Routes>
     </HashRouter>
   );
@@ -37,6 +42,11 @@ function App() {
       <a href="/Smart_City_Demo/#pick-the-largest-game">
         {" "}
         Pick The Largest Game{" "}
+      </a>
+      <br />
+      <a href="/Smart_City_Demo/#offset-matching">
+        {" "}
+        Offset Matching Game{" "}
       </a>
     </Container>;
   }

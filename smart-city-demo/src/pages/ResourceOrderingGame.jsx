@@ -48,6 +48,7 @@ function ResourceOrderingGame() {
                 id={source.id}
                 percentage={source.usage}
                 className={source.className}
+                generateText={cardContent}
               />
             ))}
           </SortableContext>
@@ -83,6 +84,23 @@ function ResourceOrderingGame() {
       }
     });
     setEnergySources(newEnergySources);
+  }
+
+  function cardContent(props) {
+    if (props.className === "correct") {
+      return (
+        <>
+        {props.id} {props.percentage}
+        </>
+      );
+    }else {
+      return (
+        <>
+        {props.id}
+        </>
+      );
+
+    }
   }
 }
 
