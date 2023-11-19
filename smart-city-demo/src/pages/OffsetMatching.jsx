@@ -5,8 +5,8 @@ import Card from "react-bootstrap/Card";
 import { useState } from "react";
 import "./OffsetMatching.css";
 import { Container } from "react-bootstrap";
-
-
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 function OffsetMatchingGame() {
     const Buildings = [
@@ -53,9 +53,11 @@ function OffsetMatchingGame() {
                 </div>
 
                 <div>
-
+                    <Button as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
+                    <Button onClick={() => setActiveBuildings(Buildings)}>Reset</Button>
                 </div>
             </DndContext>
+            
         </Container>
     );
     
