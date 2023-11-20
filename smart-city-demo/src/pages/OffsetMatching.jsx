@@ -115,7 +115,7 @@ function OffsetMatchingGame() {
             });
             console.log(activeBuildings);
         }
-        if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length-1) {
+        if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length) {
             setCurResText("Good Job You Finished the Game")
         }
 
