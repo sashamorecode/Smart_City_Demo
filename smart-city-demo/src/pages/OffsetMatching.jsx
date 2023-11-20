@@ -7,6 +7,9 @@ import "./OffsetMatching.css";
 import { CardTitle, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import useTypewriter from "react-typewriter-hook"
+
+
 
 function OffsetMatchingGame() {
     const Buildings = [
@@ -21,6 +24,7 @@ function OffsetMatchingGame() {
         { name: "Random Offset", text: "Random Offset", carbon: -400, img: "https://research.reading.ac.uk/research-blog/wp-content/uploads/sites/72/2023/10/Sycamore_Gap_The_Tree.jpg" },
     ];
     const [activeBuildings, setActiveBuildings] = useState(Buildings);
+    const [curResText, setCurResText] = useState("Drag and Drop");
     return (
         <Container>
             <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
@@ -39,8 +43,11 @@ function OffsetMatchingGame() {
                         ))}
                     </div>
                     <div style={{flex: 1}}>
-                        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        <h3>-- Drag and Drop --</h3>
+                        <Container style={{height: "100%", width: "300px"}}>
+                            <h3>
+                                {TypeWrite(curResText)}
+                            </h3>
+                        </Container>
                     </div>
                     <div style={{ flex: 1, display:"flex", flexDirection:"column", justifyContent:"center"}}>
                         {CarbonOffsets.map((offset) => (
@@ -75,20 +82,22 @@ function OffsetMatchingGame() {
         
         
         if (building && building.carbon + offset.carbon === 0) {
+            setCurResText("Correct ");
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
                 newItems[index] = { ...newItems[index], 
-                    text: "correct " + building.name + " releses " + building.carbon + " kg of Co2 and " + offset.name + " offsets " + offset.carbon, };
+                    text: building.carbon + " kg of Co2"};
                 return newItems;
             });
         }
         else {
+            setCurResText("False ");
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
                 newItems[index] = { ...newItems[index], 
-                    text: "Wrong " + building.name + " releses " + building.carbon + " kg of Co2 and " + offset.name + " offsets " + offset.carbon };
+                    text: building.carbon + " kg of Co2 and "};
                 return newItems;
             });
             console.log(activeBuildings);
@@ -119,6 +128,11 @@ function OffsetMatchingGame() {
             </div>
         );
     }
+
+    function TypeWrite(word) {
+        const typing = useTypewriter(word)
+        return typing
+      }
 
     function Offset(props) {
         const { attributes, listeners, setNodeRef, transform, transition } =
