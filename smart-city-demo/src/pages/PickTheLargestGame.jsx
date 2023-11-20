@@ -104,7 +104,7 @@ function PickTheLargestGame() {
       return arrayMove(
         items,
         revealedIndex,
-        Math.floor(Math.random() * energyConsumers.length)
+        Math.floor(Math.random() * (energyConsumers.length-2))+2
       );
     });
   }
