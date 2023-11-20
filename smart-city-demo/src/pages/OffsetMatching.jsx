@@ -2,29 +2,35 @@ import { useDraggable, DndContext, useDroppable } from "@dnd-kit/core";
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { CSS } from "@dnd-kit/utilities";
 import Card from "react-bootstrap/Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./OffsetMatching.css";
 import { CardTitle, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import useTypewriter from "react-typewriter-hook"
 
 
 
 function OffsetMatchingGame() {
     const Buildings = [
-        { name: "Dom", text: "", carbon: 300, img: "https://zva-igelbank.s3.eu-central-1.amazonaws.com/1024x1024_max/3b6dc3fea9304caf1043486ce94551b9.jpg?v=1" },
-        { name: "Rathaus",text: "", carbon: 600, img: "https://www.baukunst-nrw.de/img/objekte/XL/641_133903.jpg" },
-        { name: "Random Building",text: "", carbon: 400, img: "https://images2.fanpop.com/image/photos/9800000/random-cool-buildings-random-9869312-500-549.jpg" },
+        { name: "Dom",
+         text: "", carbon: 300, img: "https://zva-igelbank.s3.eu-central-1.amazonaws.com/1024x1024_max/3b6dc3fea9304caf1043486ce94551b9.jpg?v=1" },
+        { name: "Rathaus",
+        text: "", carbon: 600, img: "https://www.baukunst-nrw.de/img/objekte/XL/641_133903.jpg" },
+        { name: "Random Building",
+        text: "", carbon: 400, img: "https://images2.fanpop.com/image/photos/9800000/random-cool-buildings-random-9869312-500-549.jpg" },
     ];
     
     const CarbonOffsets = [
-        { name: "4 Football Fields", text: "4 Football Fields",carbon: -300, img: "https://www.francisfields.com/wp-content/uploads/cropped-Rainbow-Pictures-copy-v.4-scaled-1.jpg" },
-        { name: "Westpark", text: "Westpark", carbon: -600, img: "https://unser-aachen.eu/wp-content/uploads/2018/07/westpark03.jpg" },
-        { name: "Random Offset", text: "Random Offset", carbon: -400, img: "https://research.reading.ac.uk/research-blog/wp-content/uploads/sites/72/2023/10/Sycamore_Gap_The_Tree.jpg" },
+        { name: "4 Football Fields",
+         text: "4 Football Fields",carbon: -300, img: "https://www.francisfields.com/wp-content/uploads/cropped-Rainbow-Pictures-copy-v.4-scaled-1.jpg" },
+        { name: "Westpark",
+         text: "Westpark", carbon: -600, img: "https://unser-aachen.eu/wp-content/uploads/2018/07/westpark03.jpg" },
+        { name: "Random Offset",
+         text: "Random Offset", carbon: -400, img: "https://research.reading.ac.uk/research-blog/wp-content/uploads/sites/72/2023/10/Sycamore_Gap_The_Tree.jpg" },
     ];
     const [activeBuildings, setActiveBuildings] = useState(Buildings);
     const [curResText, setCurResText] = useState("Drag and Drop");
+    const [activeOffsets, setActiveOffsets] = useState(CarbonOffsets);
     return (
         <Container>
             <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
@@ -38,6 +44,7 @@ function OffsetMatchingGame() {
                                 className="building"
                                 carbon={building.carbon}
                                 text={building.text}
+                                state={building.state}
                                 img={building.img}
                             />
                         ))}
@@ -45,12 +52,12 @@ function OffsetMatchingGame() {
                     <div style={{flex: 1}}>
                         <Container style={{height: "100%", width: "300px"}}>
                             <h3>
-                                {TypeWrite(curResText)}
+                                {TypeWrite(curResText,50)}
                             </h3>
                         </Container>
                     </div>
                     <div style={{ flex: 1, display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                        {CarbonOffsets.map((offset) => (
+                        {activeOffsets.map((offset) => (
                             <Offset
                                 key={offset.name}
                                 id={offset.name}
@@ -78,32 +85,63 @@ function OffsetMatchingGame() {
             return;
         }
         const building = Buildings.find((building) => building.name === active.id);
-        const offset = CarbonOffsets.find((offset) => offset.name === over.id);
-        
+        const offset = activeOffsets.find((offset) => offset.name === over.id);
         
         if (building && building.carbon + offset.carbon === 0) {
-            setCurResText("Correct ");
+            setCurResText("Correct " + building.name + " : " + building.carbon+ "kg CO2");
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
                 newItems[index] = { ...newItems[index], 
-                    text: building.carbon + " kg of Co2"};
+                    text: building.carbon + " kg of Co2", state: "correct" };
+                return newItems;
+            });
+            setActiveOffsets((items) => {
+                const newItems = [...items];
+                const index = newItems.findIndex((item) => item.name === offset.name);
+                newItems[index] = { ...newItems[index], 
+                    children: active};
                 return newItems;
             });
         }
         else {
-            setCurResText("False ");
+            setCurResText("Wrong Try Again");
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
                 newItems[index] = { ...newItems[index], 
-                    text: building.carbon + " kg of Co2 and "};
+                    text: building.carbon + " kg of Co2 and ", state: "false" };
                 return newItems;
             });
             console.log(activeBuildings);
         }
+        if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length-1) {
+            setCurResText("Good Job You Finished the Game")
+        }
 
-    }   
+    }  
+
+    function TypeWrite(text,speed) {
+        const [displayText, setDisplayText] = useState('');
+        useEffect(() => {
+            setDisplayText('')
+            let i = 0;
+            const typingInterval = setInterval(() => {
+              if (i < text.length) {
+                setDisplayText(prevText => prevText + text.charAt(i));
+                i++;
+              } else {
+                clearInterval(typingInterval);
+              }
+            }, speed);
+        
+            return () => {
+              clearInterval(typingInterval);
+            };
+          }, [text, speed]);
+        
+        return displayText;
+    }
 
     function Building(props) {
         const { attributes, listeners, setNodeRef, transform, transition } =
@@ -114,6 +152,14 @@ function OffsetMatchingGame() {
             transition,
         };
         const text = props.text;
+        if (props.state === "correct") {
+            return (
+                <div ref={setNodeRef} className="emptyGameCard" {...attributes} {...listeners}>
+
+                </div>
+            );
+        }
+
         return (
             <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
                 <Card body className="offSetGameCard">
@@ -123,24 +169,19 @@ function OffsetMatchingGame() {
                     </img>
                     <CardTitle >{props.id}</CardTitle>
                     {text}
-                    
+                    {props.children}
                 </Card>
             </div>
         );
     }
 
-    function TypeWrite(word) {
-        const typing = useTypewriter(word)
-        return typing
-      }
+    
 
     function Offset(props) {
-        const { attributes, listeners, setNodeRef, transform, transition } =
+        const { attributes, listeners, setNodeRef, isOver } =
             useDroppable({ id: props.id });
-
         const style = {
-            transform: CSS.Transform.toString(transform),
-            transition,
+            opacity: isOver ? 1 : 0.8,
         };
         
         const text = props.text;
@@ -152,7 +193,7 @@ function OffsetMatchingGame() {
                 >
                 </img>
                 <CardTitle >{props.id}</CardTitle>
-
+                {props.children !== null ? props.children : null}
                 </Card>
             </div>
         );

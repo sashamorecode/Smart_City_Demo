@@ -12,6 +12,12 @@
     box-shadow: 15px 20px 15px #9c8d2b;
 }
 
+.emptyGameCard {
+    width: 300px;
+    height: 350px;
+    margin: 4px;
+    padding: 1px;
+}
 
 .building-img {
     width: 170px;
