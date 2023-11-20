@@ -115,13 +115,14 @@ function OffsetMatchingGame() {
             });
             console.log(activeBuildings);
         }
-        if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length) {
-            setCurResText("Good Job You Finished the Game")
-        }
+        
 
     }  
 
     function TypeWrite(text,speed) {
+        if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length) {
+            text = "Good Job You Finished the Game";
+        }
         const [displayText, setDisplayText] = useState('');
         useEffect(() => {
             setDisplayText('')
