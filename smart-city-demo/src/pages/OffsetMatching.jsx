@@ -72,7 +72,11 @@ function OffsetMatchingGame() {
 
                 <div>
                     <Button as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
-                    <Button onClick={() => setActiveBuildings(Buildings)}>Reset</Button>
+                    <Button onClick={() => {
+                        setActiveBuildings(Buildings)
+                        setActiveOffsets(CarbonOffsets)
+                        setCurResText("Drag and Drop")
+                        }}>Reset</Button>
                 </div>
             </DndContext>
             
@@ -121,7 +125,7 @@ function OffsetMatchingGame() {
 
     function TypeWrite(text,speed) {
         if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length) {
-            text = "Good Job You Finished the Game";
+            text = text + "\n\nGood Job You Finished the Game";
         }
         const [displayText, setDisplayText] = useState('');
         useEffect(() => {
