@@ -8,28 +8,39 @@ import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            homePage()
-          }
-        />
-        <Route
-          path="/resource-ordering-game"
-          element={<ResourceOrderingGame />}
-        />
-        <Route
-          path="/pick-the-largest-game"
-          element={<PickTheLargestGame />}
-        />
-        <Route
-          path="/offset-matching"
-          element={<OffsetMatchingGame />}
-        />
-      </Routes>
-    </HashRouter>
+    <div style={{
+        backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/1280px-Aachen_Germany_Imperial-Cathedral-01.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "auto",
+        paddingBottom: "10rem",
+        paddingTop: "5rem",
+        paddingLeft: "15rem",
+        paddingRight: "20rem",
+        overflow: "hidden",
+      }}>
+      <HashRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              homePage()
+            }
+          />
+          <Route
+            path="/resource-ordering-game"
+            element={<ResourceOrderingGame />}
+          />
+          <Route
+            path="/pick-the-largest-game"
+            element={<PickTheLargestGame />}
+          />
+          <Route
+            path="/offset-matching"
+            element={<OffsetMatchingGame />}
+          />
+        </Routes>
+      </HashRouter>
+    </div>
   );
 
   function homePage() {

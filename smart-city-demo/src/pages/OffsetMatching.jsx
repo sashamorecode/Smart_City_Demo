@@ -32,7 +32,7 @@ function OffsetMatchingGame() {
     const [curResText, setCurResText] = useState("Drag and Drop");
     const [activeOffsets, setActiveOffsets] = useState(CarbonOffsets);
     return (
-        <Container>
+        <Container className="offsetGameRoot">
             <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
                 <h1>Offset Matching Game</h1>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
@@ -186,16 +186,17 @@ function OffsetMatchingGame() {
         const { attributes, listeners, setNodeRef, isOver } =
             useDroppable({ id: props.id });
         const style = {
-            opacity: isOver ? 1 : 0.8,
+            opacity: isOver ? 1 : 0.93,
         };
         
         const text = props.text;
         return (
-            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+            <div className="offsetDiv" ref={setNodeRef} style={style} {...attributes} {...listeners}>
                 <Card body className="offSetGameCard">
                 <img className="building-img"
                     src={props.img}
                 >
+
                 </img>
                 <CardTitle >{props.id}</CardTitle>
                 {props.children !== null ? props.children : null}
