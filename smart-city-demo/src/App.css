@@ -4,6 +4,11 @@
   text-align: center; 
 }
 
+.btn-primary {
+  background-color:#00549f;
+  margin: 0.5em;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -37,12 +42,12 @@
 }
 
 .correct  {
-  padding: 2em;
+  padding: 0.5em;
   background-color: #14da2e!important;
 }
 
 .incorrect {
-  padding: 2em;
+  padding: 0.5em;
   background-color: #da3c14!important;
 }
 

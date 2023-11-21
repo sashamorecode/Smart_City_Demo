@@ -8,16 +8,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div style={{
-        backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/1280px-Aachen_Germany_Imperial-Cathedral-01.jpg)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "auto",
-        paddingBottom: "10rem",
-        paddingTop: "5rem",
-        paddingLeft: "15rem",
-        paddingRight: "20rem",
-        overflow: "hidden",
-      }}>
+    <div>
       <HashRouter>
         <Routes>
           <Route

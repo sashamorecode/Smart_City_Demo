@@ -32,55 +32,66 @@ function OffsetMatchingGame() {
     const [curResText, setCurResText] = useState("Drag and Drop");
     const [activeOffsets, setActiveOffsets] = useState(CarbonOffsets);
     return (
-        <Container className="offsetGameRoot">
-            <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
-                <h1>Offset Matching Game</h1>
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
-                    <div style={{ flex: 1, display:"flex", flexDirection:"column"}}>
-                        {activeBuildings.map((building) => (
-                            <Building
-                                key={building.name}
-                                id={building.name}
-                                className="building"
-                                carbon={building.carbon}
-                                text={building.text}
-                                state={building.state}
-                                img={building.img}
-                            />
-                        ))}
+        <div style={{
+            backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/1280px-Aachen_Germany_Imperial-Cathedral-01.jpg)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "auto",
+            paddingBottom: "10rem",
+            paddingTop: "5rem",
+            paddingLeft: "15rem",
+            paddingRight: "20rem",
+            overflow: "hidden",
+          }}>
+            <Container className="offsetGameRoot">
+                <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
+                    <h1>Offset Matching Game</h1>
+                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
+                        <div style={{ flex: 1, display:"flex", flexDirection:"column"}}>
+                            {activeBuildings.map((building) => (
+                                <Building
+                                    key={building.name}
+                                    id={building.name}
+                                    className="building"
+                                    carbon={building.carbon}
+                                    text={building.text}
+                                    state={building.state}
+                                    img={building.img}
+                                />
+                            ))}
+                        </div>
+                        <div style={{flex: 1}}>
+                            <Container style={{height: "100%", width: "300px"}}>
+                                <h3>
+                                    {TypeWrite(curResText,50)}
+                                </h3>
+                            </Container>
+                        </div>
+                        <div style={{ flex: 1, display:"flex", flexDirection:"column", justifyContent:"center"}}>
+                            {activeOffsets.map((offset) => (
+                                <Offset
+                                    key={offset.name}
+                                    id={offset.name}
+                                    class="offset"
+                                    text={offset.text}
+                                    img={offset.img}
+                                />
+                            ))
+                            }
+                        </div>
                     </div>
-                    <div style={{flex: 1}}>
-                        <Container style={{height: "100%", width: "300px"}}>
-                            <h3>
-                                {TypeWrite(curResText,50)}
-                            </h3>
-                        </Container>
-                    </div>
-                    <div style={{ flex: 1, display:"flex", flexDirection:"column", justifyContent:"center"}}>
-                        {activeOffsets.map((offset) => (
-                            <Offset
-                                key={offset.name}
-                                id={offset.name}
-                                class="offset"
-                                text={offset.text}
-                                img={offset.img}
-                            />
-                        ))
-                        }
-                    </div>
-                </div>
 
-                <div>
-                    <Button as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
-                    <Button onClick={() => {
-                        setActiveBuildings(Buildings)
-                        setActiveOffsets(CarbonOffsets)
-                        setCurResText("Drag and Drop")
-                        }}>Reset</Button>
-                </div>
-            </DndContext>
-            
-        </Container>
+                    <div>
+                        <Button as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
+                        <Button onClick={() => {
+                            setActiveBuildings(Buildings)
+                            setActiveOffsets(CarbonOffsets)
+                            setCurResText("Drag and Drop")
+                            }}>Reset</Button>
+                    </div>
+                </DndContext>
+                
+            </Container>
+        </div>
     );
     
     function handelDragEnd(event) {
