@@ -220,7 +220,9 @@ function OffsetMatchingGame() {
         const { attributes, listeners, setNodeRef, isOver } =
             useDroppable({ id: props.id });
         const style = {
+            transform: isOver ? "scale(1.1)" : "scale(1)",
             opacity: isOver ? 1 : 0.8,
+            
         };
 
         const text = props.text;
