@@ -7,30 +7,32 @@
     padding: 1rem;
 }
 
-.btn-primary {
+.projButton {
     color: black;
-    background-color: #e4b32252!important;
+    background-color: #ffee00b9!important;
     border-radius: 10px;
-    margin: 2em;
+    margin: 4em;
+    width: 12rem;
+    height: 4rem;
     --bs-btn-border-color: #e4b32252;
     --bs-btn-hover-border-color: #e4b522;
-}
+    --bs-btn-hover-bg: #161511;}
 
 h1 {
-    background-color: #00559fcb;
+    background-color: #ffee00b9;
     background-blend-mode: soft-light;
     border-radius: 10px;
     box-sizing: border-box;
-    box-shadow: 0.55rem 0.7rem 1rem 0.2rem #08294688;
+    box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
 h3 {
-    background-color:  	#00559fcb;
+    background-color:  	#ffee00b9;
     border-radius: 10px;
     box-sizing: border-box;
-    box-shadow: 0.55rem 0.7rem 1rem 0.2rem #08294688;
+    box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
 }
 
 
@@ -72,11 +74,11 @@ h3 {
 }
 
 .backButtonDiv {
-    height: 10rem;
-    width: 10rem;
+    height: 7rem;
+    width: 7rem;
     scale: 1.5;
     position: absolute;
-    top: 24.5rem;
+    top: 25.5rem;
     left: -1rem;
 }
 
