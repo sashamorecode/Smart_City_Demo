@@ -61,7 +61,7 @@ function OffsetMatchingGame() {
                         <div style={{flex: 1}}>
                             <Container style={{height: "100%", width: "300px"}}>
                                 <h3>
-                                    {TypeWrite(curResText,50)}
+                                    {TypeWrite(curResText,45)}
                                 </h3>
                             </Container>
                         </div>
@@ -101,7 +101,7 @@ function OffsetMatchingGame() {
         }
         const building = Buildings.find((building) => building.name === active.id);
         const offset = activeOffsets.find((offset) => offset.name === over.id);
-        
+        setCurResText("")
         if (building && building.carbon + offset.carbon === 0) {
             setCurResText("Correct " + building.name + " : " + building.carbon+ "kg CO2");
             setActiveBuildings((items) => {
@@ -120,7 +120,7 @@ function OffsetMatchingGame() {
             });
         }
         else {
-            setCurResText("Wrong Try Again");
+            setCurResText("Wrong " + building.name + " dose not match " + offset.name);
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
