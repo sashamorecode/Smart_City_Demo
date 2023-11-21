@@ -7,7 +7,7 @@ import "./OffsetMatching.css";
 import { CardTitle, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-
+import BackButton from "./backButton.jsx";
 
 
 function OffsetMatchingGame() {
@@ -81,8 +81,8 @@ function OffsetMatchingGame() {
                     </div>
 
                     <div>
-                        <Button as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
-                        <Button onClick={() => {
+                        <Button className="porjButton reset" as = {Link} to = "/" onClick={() => setActiveBuildings(Buildings)}>Home</Button>
+                        <Button className="projButton back" onClick={() => {
                             setActiveBuildings(Buildings)
                             setActiveOffsets(CarbonOffsets)
                             setCurResText("Drag and Drop")

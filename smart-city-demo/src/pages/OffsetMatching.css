@@ -7,6 +7,15 @@
     padding: 1rem;
 }
 
+.btn-primary {
+    color: black;
+    background-color: #e4b32252!important;
+    border-radius: 10px;
+    margin: 2em;
+    --bs-btn-border-color: #e4b32252;
+    --bs-btn-hover-border-color: #e4b522;
+}
+
 h1 {
     background-color: #00559fc0;
     border-radius: 10px;
