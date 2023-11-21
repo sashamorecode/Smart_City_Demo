@@ -4,28 +4,29 @@
 }
 
 .card {
-    padding: 1rem;
+    padding: 1vh;
 }
 
 .projButton {
     color: black;
     background-color: #ffee00b9!important;
     border-radius: 10px;
-    margin: 4em;
+    margin: 4vh;
     width: 12vw;
     height: 10vh;
     --bs-btn-border-color: #e4b32252;
     --bs-btn-hover-border-color: #e4b522;
-    --bs-btn-hover-bg: #161511;}
-
+    --bs-btn-hover-bg: #161511;
+    
+}
 h1 {
     background-color: #ffee00b9;
     background-blend-mode: soft-light;
-    border-radius: 10px;
+    border-radius: 20px;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
 }
 
 h3 {
@@ -41,7 +42,7 @@ h3 {
     background-blend-mode: soft-light;
     background-color: #ffee00b9;
     border-radius: 10px;
-    margin: 1rem;
+    margin: 2vh;
     padding: 0px;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
@@ -52,7 +53,7 @@ h3 {
     background-blend-mode: soft-light;
     background-color: 	#57ab27e0;
     border-radius: 10px;
-    margin: 1rem;
+    margin: 2vh;
     padding: 0px;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #4a6937e0;
@@ -61,7 +62,7 @@ h3 {
 .emptyGameCard {
     width: 15vw;
     height: 20.15vh;
-    margin: 1rem;
+    margin: 2vh;
 
 }
 
