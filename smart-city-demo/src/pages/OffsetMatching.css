@@ -43,7 +43,7 @@ h3 {
     background-color: #ffee00b9;
     border-radius: 10px;
     margin: 2vh;
-    padding: 0px;
+    padding: 0.5vh!important;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
 }
@@ -54,21 +54,21 @@ h3 {
     background-color: 	#57ab27e0;
     border-radius: 10px;
     margin: 2vh;
-    padding: 0px;
+    padding: 0.5vh!important;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #4a6937e0;
 }
 
 .emptyGameCard {
     width: 15vw;
-    height: 20.15vh;
-    margin: 2vh;
+    height: 20.5vh;
+    padding: 0.5vh!important;
 
 }
 
 .building-img {
-    width: 15vw;
-    height: 15vh;
+    width: 12vw;
+    height: 12vh;
     object-fit: cover;
     border-radius: 3px;
     
