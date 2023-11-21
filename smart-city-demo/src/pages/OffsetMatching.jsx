@@ -44,7 +44,7 @@ function OffsetMatchingGame() {
     const [activeOffsets, setActiveOffsets] = useState(CarbonOffsets);
     return (
         <div style={{
-            backgroundImage: "url(https://i.postimg.cc/xCL46WQK/Whats-App-Image-2023-11-21-at-11-36-16.jpg)",
+            backgroundImage: "url(https://i.postimg.cc/ydYh4D8S/00005-3904468259-transformed.png)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
