@@ -11,7 +11,7 @@ export default function BackIcon() {
           y="2.298"
           fill="#6E5919"
           fillOpacity="0.91"
-          stroke="#E4B520"
+          stroke="#ffee00ce"
           strokeOpacity="0"
           strokeWidth="0"
           opacity="0.4"
@@ -20,8 +20,8 @@ export default function BackIcon() {
           ry="28.632"
         ></rect>
         <path
-          fill="#E4B520"
-          stroke="#E4B520"
+          fill="#ffee00ce"
+          stroke="#ffee00ce"
           strokeWidth="0"
           d="M139.789 82.006l10.252-18.742-4.485-4.246-47.738 23.869 47.337 24.029 4.966-4.085-10.332-20.825z"
           paintOrder="fill markers"
