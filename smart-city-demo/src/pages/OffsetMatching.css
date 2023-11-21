@@ -65,6 +65,10 @@ h3 {
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #4a6937e0;
 }
 
+.DragMe {
+    touch-action: manipulation;
+}
+
 
 .card-title {
     font-size: 2vmin;

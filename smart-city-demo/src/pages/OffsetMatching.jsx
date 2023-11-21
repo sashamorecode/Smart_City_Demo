@@ -194,7 +194,7 @@ function OffsetMatchingGame() {
         const text = props.text;
 
         return (
-            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="DragMe">
                 <Card body className="offSetGameCard">
                     <img className="building-img"
                         src={props.img}
@@ -220,7 +220,7 @@ function OffsetMatchingGame() {
 
         const text = props.text;
         return (
-            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="DragMe">
                 <Card body className={props.className}>
                     <img className="building-img"
                         src={props.img}
