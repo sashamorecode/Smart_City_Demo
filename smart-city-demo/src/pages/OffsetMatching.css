@@ -67,6 +67,7 @@ h3 {
 
 .DragMe {
     touch-action: manipulation;
+    -ms-touch-action: manipulation;
 }
 
 
@@ -82,6 +83,7 @@ h3 {
     height: 17vmin;
     object-fit: cover;
     border-radius: 1vmin;
+    touch-action: none;
     
 }
 
