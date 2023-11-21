@@ -21,11 +21,11 @@ function OffsetMatchingGame() {
     ];
     
     const CarbonOffsets = [
-        { name: "4 Football Fields",
+        { name: "4 Football Fields", className: "offSetGameCard",
          text: "4 Football Fields",carbon: -300, img: "https://www.francisfields.com/wp-content/uploads/cropped-Rainbow-Pictures-copy-v.4-scaled-1.jpg" },
-        { name: "Westpark",
+        { name: "Westpark", isCompleate: true, className: "offSetGameCard",
          text: "Westpark", carbon: -600, img: "https://unser-aachen.eu/wp-content/uploads/2018/07/westpark03.jpg" },
-        { name: "Random Offset",
+        { name: "Random Offset", className: "offSetGameCard",
          text: "Random Offset", carbon: -400, img: "https://research.reading.ac.uk/research-blog/wp-content/uploads/sites/72/2023/10/Sycamore_Gap_The_Tree.jpg" },
     ];
     const [activeBuildings, setActiveBuildings] = useState(Buildings);
@@ -33,13 +33,12 @@ function OffsetMatchingGame() {
     const [activeOffsets, setActiveOffsets] = useState(CarbonOffsets);
     return (
         <div style={{
-            backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Aachen_Germany_Imperial-Cathedral-01.jpg/1280px-Aachen_Germany_Imperial-Cathedral-01.jpg)",
+            backgroundImage: "url(https://i.postimg.cc/xCL46WQK/Whats-App-Image-2023-11-21-at-11-36-16.jpg)",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "auto",
-            paddingBottom: "10rem",
-            paddingTop: "5rem",
-            paddingLeft: "15rem",
-            paddingRight: "20rem",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100vw",
+            height: "100vh",
             overflow: "hidden",
           }}>
             <Container className="offsetGameRoot">
@@ -74,6 +73,7 @@ function OffsetMatchingGame() {
                                     class="offset"
                                     text={offset.text}
                                     img={offset.img}
+                                    className={offset.className}
                                 />
                             ))
                             }
@@ -115,7 +115,7 @@ function OffsetMatchingGame() {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === offset.name);
                 newItems[index] = { ...newItems[index], 
-                    children: active};
+                    children: active, className: "offSetGameCardCorrect" };
                 return newItems;
             });
         }
@@ -125,7 +125,7 @@ function OffsetMatchingGame() {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
                 newItems[index] = { ...newItems[index], 
-                    text: building.carbon + " kg of Co2 and ", state: "false" };
+                    state: "false" };
                 return newItems;
             });
             console.log(activeBuildings);
@@ -175,7 +175,7 @@ function OffsetMatchingGame() {
                 </div>
             );
         }
-
+        
         return (
             <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
                 <Card body className="offSetGameCard">
@@ -202,8 +202,8 @@ function OffsetMatchingGame() {
         
         const text = props.text;
         return (
-            <div className="offsetDiv" ref={setNodeRef} style={style} {...attributes} {...listeners}>
-                <Card body className="offSetGameCard">
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+                <Card body className={props.className}>
                 <img className="building-img"
                     src={props.img}
                 >
