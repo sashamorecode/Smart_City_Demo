@@ -191,10 +191,14 @@ function OffsetMatchingGame() {
             zIndex: 1,
             opacity: props.state === "correct" ? 0 : 1,
         };
+        let classN = "DragMe"
+        if (props.state === "correct") {
+            classN = "DontDragMe"
+        }
         const text = props.text;
 
         return (
-            <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="DragMe">
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners} className={classN}>
                 <Card body className="offSetGameCard">
                     <img className="building-img"
                         src={props.img}
@@ -220,7 +224,7 @@ function OffsetMatchingGame() {
 
         const text = props.text;
         return (
-            <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="DragMe">
+            <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
                 <Card body className={props.className}>
                     <img className="building-img"
                         src={props.img}
