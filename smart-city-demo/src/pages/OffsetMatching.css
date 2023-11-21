@@ -4,14 +4,14 @@
 }
 
 .card {
-    padding: 1vh;
+    padding: 1vmin;
 }
 
 .projButton {
     color: black;
     background-color: #ffee00b9!important;
-    border-radius: 10px;
-    margin: 4vh;
+    border-radius: 2vmin;
+    margin: 4vmin;
     width: 12vw;
     height: 10vh;
     font-size: 2.5vmin;
@@ -23,7 +23,7 @@
 h1 {
     background-color: #ffee00b9;
     background-blend-mode: soft-light;
-    border-radius: 20px;
+    border-radius: 3vmin;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
     margin-top: 1vh;
@@ -35,7 +35,7 @@ h1 {
 h3 {
     font-size: 2.5vmin;
     background-color:  	#ffee00b9;
-    border-radius: 10px;
+    border-radius: 1vmin;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
 }
@@ -45,9 +45,9 @@ h3 {
     align-content: center;
     background-blend-mode: soft-light;
     background-color: #ffee00b9;
-    border-radius: 10px;
+    border-radius: 1vmin;
     margin: 2vmin;
-    padding: 0.5vh!important;
+    padding: 0.5vmin!important;
     border-width: 0;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
@@ -57,19 +57,14 @@ h3 {
     align-content: center;
     background-blend-mode: soft-light;
     background-color: 	#57ab27e0;
-    border-radius: 10px;
+    border-radius: 1vmin;
     margin: 2vmin;
-    padding: 0.5vh!important;
+    padding: 0.5vmin!important;
     border-width: 0;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #4a6937e0;
 }
 
-.emptyGameCard {
-    width: 15vw;
-    height: 20.3vh;
-
-}
 
 .card-title {
     font-size: 2vmin;
@@ -79,10 +74,10 @@ h3 {
 }
 
 .building-img {
-    width: 13vw;
-    height: 13vh;
+    width: 17vmin;
+    height: 17vmin;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 1vmin;
     
 }
 
