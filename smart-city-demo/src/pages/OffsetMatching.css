@@ -12,8 +12,8 @@
     background-color: #ffee00b9!important;
     border-radius: 10px;
     margin: 4em;
-    width: 12rem;
-    height: 4rem;
+    width: 12vw;
+    height: 10vh;
     --bs-btn-border-color: #e4b32252;
     --bs-btn-hover-border-color: #e4b522;
     --bs-btn-hover-bg: #161511;}
@@ -59,26 +59,26 @@ h3 {
 }
 
 .emptyGameCard {
-    width: 15.1rem;
-    height: 12.1rem;
+    width: 15vw;
+    height: 20.15vh;
     margin: 1rem;
 
 }
 
 .building-img {
-    width: 12rem;
-    height: 9rem;
+    width: 15vw;
+    height: 15vh;
     object-fit: cover;
     border-radius: 3px;
     
 }
 
 .backButtonDiv {
-    height: 7rem;
-    width: 7rem;
-    scale: 1.5;
+    height: 10vw;
+    width: 10vw;
+    scale: 1;
     position: absolute;
-    top: 25.5rem;
-    left: -1rem;
+    top: 40vh;
+    left: -2vw;
 }
 
