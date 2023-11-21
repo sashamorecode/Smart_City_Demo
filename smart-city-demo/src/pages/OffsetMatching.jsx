@@ -60,7 +60,7 @@ function OffsetMatchingGame() {
                 <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
                     <h1>Offset Matching Game</h1>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
-                        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems:"center" }}>
                             {activeBuildings.map((building) => (
                                 <Building
                                     key={building.name}
@@ -80,7 +80,7 @@ function OffsetMatchingGame() {
                                 </h3>
                             </Container>
                         </div>
-                        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
                             {activeOffsets.map((offset) => (
                                 <Offset
                                     key={offset.name}
