@@ -14,6 +14,7 @@
     margin: 4vh;
     width: 12vw;
     height: 10vh;
+    font-size: 2.5vmin;
     --bs-btn-border-color: #e4b32252;
     --bs-btn-hover-border-color: #e4b522;
     --bs-btn-hover-bg: #161511;
@@ -27,9 +28,12 @@ h1 {
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
     margin-top: 1vh;
     margin-bottom: 2vh;
+    clip-rule: inherit;
+    font-size: 5vmin!important;
 }
 
 h3 {
+    font-size: 2.5vmin;
     background-color:  	#ffee00b9;
     border-radius: 10px;
     box-sizing: border-box;
@@ -42,8 +46,9 @@ h3 {
     background-blend-mode: soft-light;
     background-color: #ffee00b9;
     border-radius: 10px;
-    margin: 2vh;
+    margin: 2vmin;
     padding: 0.5vh!important;
+    border-width: 0;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #6E5919;
 }
@@ -53,22 +58,29 @@ h3 {
     background-blend-mode: soft-light;
     background-color: 	#57ab27e0;
     border-radius: 10px;
-    margin: 2vh;
+    margin: 2vmin;
     padding: 0.5vh!important;
+    border-width: 0;
     box-sizing: border-box;
     box-shadow: 0.55rem 0.7rem 1rem 0.2rem #4a6937e0;
 }
 
 .emptyGameCard {
     width: 15vw;
-    height: 20.5vh;
-    padding: 0.5vh!important;
+    height: 20.3vh;
 
 }
 
+.card-title {
+    font-size: 2vmin;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+
 .building-img {
-    width: 12vw;
-    height: 12vh;
+    width: 13vw;
+    height: 13vh;
     object-fit: cover;
     border-radius: 3px;
     

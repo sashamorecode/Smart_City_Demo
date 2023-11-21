@@ -75,7 +75,7 @@ function OffsetMatchingGame() {
                             ))}
                         </div>
                         <div style={{ flex: 1 }}>
-                            <Container style={{ height: "100%", width: "300px" }}>
+                            <Container style={{ height: "100%", width: "100%" }}>
                                 <h3>
                                     {TypeWrite(curResText, 45)}
                                 </h3>
@@ -189,15 +189,9 @@ function OffsetMatchingGame() {
             transform: CSS.Transform.toString(transform),
             transition,
             zIndex: 1,
+            opacity: props.state === "correct" ? 0 : 1,
         };
         const text = props.text;
-        if (props.state === "correct") {
-            return (
-                <div ref={setNodeRef} className="emptyGameCard" {...attributes} {...listeners}>
-
-                </div>
-            );
-        }
 
         return (
             <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
@@ -207,7 +201,6 @@ function OffsetMatchingGame() {
                     >
                     </img>
                     <CardTitle >{props.id}</CardTitle>
-                    {text}
                     {props.children}
                 </Card>
             </div>
@@ -235,7 +228,6 @@ function OffsetMatchingGame() {
 
                     </img>
                     <CardTitle >{props.id}</CardTitle>
-                    {props.children !== null ? props.children : null}
                 </Card>
             </div>
         );
