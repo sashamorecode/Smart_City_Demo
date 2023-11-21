@@ -188,6 +188,7 @@ function OffsetMatchingGame() {
         const style = {
             transform: CSS.Transform.toString(transform),
             transition,
+            zIndex: 1,
         };
         const text = props.text;
         if (props.state === "correct") {
