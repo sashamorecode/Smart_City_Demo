@@ -69,3 +69,12 @@ h3 {
     
 }
 
+.backButtonDiv {
+    height: 10rem;
+    width: 10rem;
+    scale: 2;
+    position: relative;
+    top: 30rem;
+    left: -12rem;
+}
+
