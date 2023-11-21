@@ -52,6 +52,7 @@ function OffsetMatchingGame() {
             height: "100vh",
             overflow: "hidden",
             display: "flex",
+            scrollBehavior: "off",
         }}>
             <Container className="offsetGameRoot">
                 <div className="backButtonDiv">
