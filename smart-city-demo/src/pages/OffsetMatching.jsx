@@ -8,35 +8,36 @@ import { CardTitle, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import BackIcon from "./backButton";
-
+import { View } from "react";
 function OffsetMatchingGame() {
     const Buildings = [
-        {
-            name: "Dom",
-            text: "", carbon: 300, img: "https://zva-igelbank.s3.eu-central-1.amazonaws.com/1024x1024_max/3b6dc3fea9304caf1043486ce94551b9.jpg?v=1"
-        },
+        
         {
             name: "Rathaus",
-            text: "", carbon: 600, img: "https://www.baukunst-nrw.de/img/objekte/XL/641_133903.jpg"
+            text: "", carbon: 2, img: "https://www.baukunst-nrw.de/img/objekte/XL/641_133903.jpg"
         },
         {
-            name: "Random Building",
-            text: "", carbon: 400, img: "https://images2.fanpop.com/image/photos/9800000/random-cool-buildings-random-9869312-500-549.jpg"
+            name: "Super C",
+            text: "", carbon: 3, img: "https://dam.destination.one/606337/c5a08a062a77e212198726c07d394c88c5ad336abf03e740b973b868edc75e3c/super-c-aachen.jpg"
+        },
+        {
+            name: "Theatre",
+            text: "", carbon: 1, img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Aachen_Theatre.jpg/450px-Aachen_Theatre.jpg"
         },
     ];
 
     const CarbonOffsets = [
         {
-            name: "4 Football Fields", className: "offSetGameCard",
-            text: "4 Football Fields", carbon: -300, img: "https://www.francisfields.com/wp-content/uploads/cropped-Rainbow-Pictures-copy-v.4-scaled-1.jpg"
+            name: "Stadt Park x 2", className: "offSetGameCard",
+            text: "Stadt Park x 2", carbon: -1, img: "https://dam.destination.one/658678/9ace0ad701589c21710db036498bb9a7a070536117e21c83b1b960a6dd5c634e/.jpg"
         },
         {
-            name: "Westpark", isCompleate: true, className: "offSetGameCard",
-            text: "Westpark", carbon: -600, img: "https://unser-aachen.eu/wp-content/uploads/2018/07/westpark03.jpg"
+            name: "West Park x 2", isCompleate: true, className: "offSetGameCard",
+            text: "West Park x 2", carbon: -2, img: "https://unser-aachen.eu/wp-content/uploads/2018/07/westpark03.jpg"
         },
         {
-            name: "Random Offset", className: "offSetGameCard",
-            text: "Random Offset", carbon: -400, img: "https://research.reading.ac.uk/research-blog/wp-content/uploads/sites/72/2023/10/Sycamore_Gap_The_Tree.jpg"
+            name: "Stadt Park x 27", className: "offSetGameCard",
+            text: "Stadt Park x 27", carbon: -3, img: "https://dam.destination.one/658674/ff3b438e87f905bdd5afd46cfb1c8bcefb88d01a8a59236d70d2c56465b5146c/.jpg"
         },
     ];
     const [activeBuildings, setActiveBuildings] = useState(Buildings);
@@ -58,53 +59,60 @@ function OffsetMatchingGame() {
                 <div className="backButtonDiv">
                     <BackIcon />
                 </div>
-                <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
-                    <h1>Offset Matching Game</h1>
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", }}>
-                        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems:"center" }}>
-                            {activeBuildings.map((building) => (
-                                <Building
-                                    key={building.name}
-                                    id={building.name}
-                                    className="building"
-                                    carbon={building.carbon}
-                                    text={building.text}
-                                    state={building.state}
-                                    img={building.img}
-                                />
-                            ))}
-                        </div>
-                        <div style={{ flex: 1 }}>
-                            <Container style={{ height: "100%", width: "100%" }}>
-                                <h3>
-                                    {TypeWrite(curResText, 45)}
-                                </h3>
-                            </Container>
-                        </div>
-                        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                            {activeOffsets.map((offset) => (
-                                <Offset
-                                    key={offset.name}
-                                    id={offset.name}
-                                    class="offset"
-                                    text={offset.text}
-                                    img={offset.img}
-                                    className={offset.className}
-                                />
-                            ))
-                            }
-                        </div>
+                <div style={{height:"3vh"}}/>
+                
+                <div>
+                    <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
+                <div>
+                    <h1 style={{flex:1}}>Offset Matching Game</h1>
+                </div>
+                <div className="rowDiv" style={{ display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                    <div style={{ flexGrow: 2, flexShrink:1, display: "flex", flexDirection: "column", alignItems:"center" }}>
+                        {activeBuildings.map((building) => (
+                            <Building
+                                key={building.name}
+                                id={building.name}
+                                className="building"
+                                carbon={building.carbon}
+                                text={building.text}
+                                state={building.state}
+                                img={building.img}
+                            />
+                        ))}
                     </div>
+                    <div style={{ flexGrow:1, flexShrink:2, alignContent:"center"}}>
+                       
+                        <Container style={{ height: "100%", minWidth:"13vw"}}>
+                            <h3>
+                                {TypeWrite(curResText, 45)}
+                            </h3>
+                        </Container>
+                    </div>
+                    <div style={{ flexGrow: 2, flexShrink:1, display: "flex", flexDirection: "column", alignItems: "center"}}>
+                        {activeOffsets.map((offset) => (
+                            <Offset
+                                key={offset.name}
+                                id={offset.name}
+                                class="offset"
+                                text={offset.text}
+                                img={offset.img}
+                                className={offset.className}
+                            />
+                        ))
+                        }
+                    </div>
+                </div>
 
-                    <div>
-                        
-                        <Button className="projButton back" onClick={() => {
-                            setActiveBuildings(Buildings)
-                            setActiveOffsets(CarbonOffsets)
-                            setCurResText("Drag and Drop")
-                        }}>Reset</Button>
-                    </div>
+                <div>
+                    
+                    <Button className="projButton back" onClick={() => {
+                        setActiveBuildings(Buildings)
+                        setActiveOffsets(CarbonOffsets)
+                        setCurResText("Drag and Drop")
+                    }}>Reset</Button>
+                </div>
                 </DndContext>
+                </div>
 
             </Container>
         </div>
@@ -119,7 +127,7 @@ function OffsetMatchingGame() {
         const offset = activeOffsets.find((offset) => offset.name === over.id);
         setCurResText("")
         if (building && building.carbon + offset.carbon === 0) {
-            setCurResText("Correct " + building.name + " : " + building.carbon + "kg CO2");
+            setCurResText("Correct " + offset.name + " offsets " + building.name);
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
@@ -140,7 +148,7 @@ function OffsetMatchingGame() {
             });
         }
         else {
-            setCurResText("Wrong " + building.name + " dose not match " + offset.name);
+            setCurResText("Wrong " + offset.name + " dose not offset " + building.name);
             setActiveBuildings((items) => {
                 const newItems = [...items];
                 const index = newItems.findIndex((item) => item.name === building.name);
@@ -158,7 +166,7 @@ function OffsetMatchingGame() {
 
     function TypeWrite(text, speed) {
         if (activeBuildings.filter((building) => building.state === "correct").length === activeBuildings.length) {
-            text = text + "\n\nGood Job You Finished the Game";
+            text = text + ', Good Job You Finished the Game';
         }
         const [displayText, setDisplayText] = useState('');
         useEffect(() => {
