@@ -64,7 +64,7 @@ function OffsetMatchingGame() {
                 <div>
                     <DndContext onDragEnd={handelDragEnd} modifiers={[restrictToWindowEdges]}>
                 <div>
-                    <h1 style={{flex:1}}>Offset Matching Game</h1>
+                    <h1 style={{flex:1}}>Drag each facility to the area of trees required to compensate its carbon offset</h1>
                 </div>
                 <div className="rowDiv" style={{ display: "flex", flexDirection: "row", justifyContent: "center"}}>
                     <div style={{ flexGrow: 2, flexShrink:1, display: "flex", flexDirection: "column", alignItems:"center" }}>
