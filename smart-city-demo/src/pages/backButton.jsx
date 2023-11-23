@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function BackIcon() {
   return (
-    <a href={"/Smart_City_Demo"} className="backButton">
+    <a href={"https://xd.adobe.com/view/6455875b-0376-48d0-8704-d95f13f9a295-3106/?fullscreen&hints=off"} className="backButton">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 211 205">
         <rect
           width="166.486"
